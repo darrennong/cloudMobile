@@ -36,8 +36,14 @@ strPostData=sessionId=5b0b618b91df4b3593e1be62099cc9fb&userId=1027591
 http://10.0.0.199:9000/fingerauth/wallet/recordList.html?client=win&version=2.1.77&uuid=36356415-FF9E-406c-BFE1-93DE2CC194C9&source=com.redfinger.app
 strPostData=sessionId=5b0b618b91df4b3593e1be62099cc9fb&userId=1027591&pageNum=1&pageSize=100
 //我的礼包
+http://10.0.0.199:9000/fingerauth/gift/myGiftList.html?client=win&version=2.1.77&uuid=36356415-FF9E-406c-BFE1-93DE2CC194C9&source=com.redfinger.app
+strPostData=sessionId=046eb3c0d46445c39cd475f2d56847b1&userId=1027591&giftStatus=&pageNum=1&pageSize=100
 //红豆记录
+http://10.0.0.199:9000/fingerauth/rbcRecord/getRbcRecord.html?client=win&version=2.1.77&uuid=36356415-FF9E-406c-BFE1-93DE2CC194C9&source=com.redfinger.app
+strPostData=sessionId=046eb3c0d46445c39cd475f2d56847b1&userId=1027591
 //查看订单
+http://10.0.0.215:8880/fingerauth/rbcRecord/getRbcRecord.html?client=win&version=2.1.77&uuid=36356415-FF9E-406c-BFE1-93DE2CC194C9&source=com.redfinger.app
+strPostData=sessionId=046eb3c0d46445c39cd475f2d56847b1&userId=1027591
 //我的等级
 //我的设置
 --头像设置
