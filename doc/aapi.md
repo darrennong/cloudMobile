@@ -1,4 +1,177 @@
 # 云手机接口列表
+## PC应用接口相关设置
+### 设置模块名称
+```
+#define FINGERLOGIN		"/fingerlogin"
+#define FINGERAUTH		"/fingerauth"
+#define FINGERCOMMAND	"/fingercommand"
+#define FINGERPAY		"/fingerpay"
+#define FINGERGATHER	"/fingergather"
+```
+### 设置请求路径
+```
+//检测新版本
+	m_nCurHostIndex = ((UINT)nIndex) >= m_strUrlHostList.size() ? 0 : nIndex;
+	m_UrlMap[OPERATION_GET_NEWVERSION] = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN + "/version/checkNewVersion.html";	//检测新版本
+//登陆
+	//m_UrlMap[OPERATION_LOGIN] = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN + "/user/getUser.html";				//登陆
+	m_UrlMap[OPERATION_LOGIN] = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN + "/user/getUserRs.html";				//登陆
+
+	m_UrlMap[OPERATION_GETKEY] = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN + "/user/getKey.html";				//登陆
+	m_UrlMap[OPERATION_LOGOUT] = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN + "/user/logout.html";				//登出
+  //注册
+	//m_UrlMap[OPERATION_REGISTER] = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN + "/user/signup.html";				//注册
+	m_UrlMap[OPERATION_REGISTER] = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN + "/user/signupRs.html";				//注册
+//找回密码
+	//m_UrlMap[OPERATION_FORGETPWD] = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN + "/user/resetPassword.html"; 		//找回密码
+	m_UrlMap[OPERATION_FORGETPWD] = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN + "/user/resetPasswordRs.html"; 		
+	//找回密码
+//注册账号获取手机验证码
+	//m_UrlMap[OPERATION_GETMOBILECODE_FROM_REGISTER] = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN + "/sms/sendBySignUpImg.html";		//注册账号获取手机验证码
+	m_UrlMap[OPERATION_GETMOBILECODE_FROM_REGISTER] = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN + "/sms/sendBySignUpImgRs.html";		//注册账号获取手机验证码
+
+	//m_UrlMap[OPERATION_GETMOBILECODE_FROM_FORGETPWD] = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN + "/sms/sendByResetImg.html";		//找回密码获取手机验证码
+	m_UrlMap[OPERATION_GETMOBILECODE_FROM_FORGETPWD] = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN + "/sms/sendByResetImgRs.html";		//找回密码获取手机验证码
+
+//注册和找回密码时获取图形验证码
+	m_UrlMap[OPERATION_GET_IMAGECODE] = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN + "/user/getImge.html";				//注册和找回密码时获取图形验证码
+  //获取设备列表
+	//m_UrlMap[OPERATION_REQUEST_PADLIST]			 = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN + "/pad/getPad.html";					//获取设备列表
+	m_UrlMap[OPERATION_REQUEST_PADLIST] = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN + "/pad/getPadList.html";
+//获取用户信息
+	m_UrlMap[OPERATION_GET_USERINFO] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/user/getUserInfo.html";				//获取用户信息
+  //获取授权设备列表
+	m_UrlMap[OPERATION_ACCREDITLIST] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/grant/getPadList.html";				//获取授权设备列表
+	m_UrlMap[OPERATION_REQUEST_ROOMLIST] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/idc/getIdc.html";
+//通过授权码绑定设备
+	//m_UrlMap[OPERATION_ADD_ACCREDITDEVICE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/grant/bindPadByGrantCode.html";		//通过授权码绑定设备
+	m_UrlMap[OPERATION_ADD_ACCREDITDEVICE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/grant/bindPadByGrantCodeRs.html";		//通过授权码绑定设备
+//授权码授权
+	m_UrlMap[OPERATION_GET_ACCREDITCODE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/grant/generateGrantCode.html";		//授权码授权
+  //设备授权信息
+	m_UrlMap[OPERATION_GET_ACCREDITINFO] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/grant/getPadGrantInfo.html";			//设备授权信息
+  //账号授权
+	m_UrlMap[OPERATION_USER_ACCREDIT] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/grant/grantPad2Account.html";			//账号授权
+  //取消授权
+	m_UrlMap[OPERATION_CANCEL_ACCREDIT] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/grant/cancelPadGrant.html";			//取消授权
+  //获取公告列表
+	m_UrlMap[OPERATION_REQUEST_NOTICELIST] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/userNotice/getUserNoticePage.html";  //获取公告列表
+  //更新公告
+	m_UrlMap[OPERATION_UPDATE_NOTICE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/notice/updateUserNotice.html";		//更新公告
+  //绑定设备
+	m_UrlMap[OPERATION_APPLY_DEVICE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/user/bindPad.html";				//绑定设备
+  //查看普通设备申请状态
+	m_UrlMap[OPERATION_CHECK_PAD] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/user/checkPad.html";				//查看普通设备申请状态
+  //查看VIP设备申请状态
+	m_UrlMap[OPERATION_CHECK_VIPPAD] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/user/checkVipPad.html";				//查看VIP设备申请状态
+  //查看GVIP设备申请状态
+	m_UrlMap[OPERATION_CHECK_GVIPPAD] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/user/checkGvipPad.html";				//查看GVIP设备申请状态
+  //查看体验设备申请状态
+	m_UrlMap[OPERATION_CHECK_EXPPAD] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/user/checkPadProbation.html";		//查看体验设备申请状态
+  //获取VIP套餐列表
+	m_UrlMap[OPERATION_GETGOODS_MEAL] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/goods/getVipGoodsNew.html";			//获取VIP套餐列表
+  //充值设备
+	m_UrlMap[OPERATION_ONLYCHARGE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/order/recharge.html"; 				//充值设备
+  //购买VIP设备
+	m_UrlMap[OPERATION_BUYVIPDEVICE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/order/buy.html";					//购买VIP设备
+  //订单记录
+	m_UrlMap[OPERATION_REQUEST_ORDERLIST] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/order/getOrders.html"; 				//订单记录
+  //获取支付方式
+	m_UrlMap[OPERATION_GET_PAYMODE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/order/getPayModes.html";			//获取支付方式
+  //红豆兑换设备
+	m_UrlMap[OPERATION_EXCHANGE_RBC] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/pad/exChangeRbc.html"; 				//红豆兑换设备
+	m_UrlMap[OPERATION_REQUEST_FAULTTYPE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/label/getFaultLabels.html";
+	m_UrlMap[OPERATION_FEEDBACK_FAULT] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/fault/saveFault.html";
+	m_UrlMap[OPERATION_REQUEST_FAULTLIST] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/fault/getFaultsByUserId.html";
+	m_UrlMap[OPERATION_BIND_SEND_SMS] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/sms/sendByBindUserPhone.html";
+	m_UrlMap[OPERATION_SEND_SMS] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/sms/send.html";
+	m_UrlMap[OPERATION_USER_BIND_MOBILE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/user/onlyAllocatePadByPhone.html";
+	m_UrlMap[OPERATION_PAD_LOGIN_TASK] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/task/doPadLoginTask.html";
+	m_UrlMap[OPERATION_GET_DAILYATTENDANCE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/task/getPcTasks.html";
+	m_UrlMap[OPERATION_DAILYATTENDANCE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/task/attendance.html";
+  //获取红豆记录
+	m_UrlMap[OPERATION_REQUEST_RBCRECORD] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/rbcRecord/getRbcRecord.html";		//获取红豆记录
+	m_UrlMap[OPERATION_NEEDACTIVATION] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/activation/needValidateCode.html";
+  //是否显示图形验证码
+	m_UrlMap[OPERATION_ISSHOWIMGCODE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/grant/needValidCode.html"; 			//是否显示图形验证码
+	m_UrlMap[OPERATION_NORMAL_VALIDCODE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/images/getFreePadBindImage.html";
+	m_UrlMap[OPERATION_TEST_VALIDCODE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/images/getTastePadBindImage.html";
+
+	//m_UrlMap[OPERATION_GETACTIVATIONDEVICE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/activation/checkActivationCode.html";
+	m_UrlMap[OPERATION_GETACTIVATIONDEVICE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/activation/checkActivationCodeRs.html";
+
+
+	//m_UrlMap[OPERATION_BINDPAD_SMS] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/bindPadSms/checkValidata.html";
+	m_UrlMap[OPERATION_BINDPAD_SMS] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/bindPadSms/checkValidataRs.html";
+
+	m_UrlMap[OPERATION_UPDATE_USERHEAD] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/user/updateUserData.html";
+	m_UrlMap[OPERATION_SENDVOICESMS] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/activation/sendVoiceSms.html";
+	m_UrlMap[OPERATION_ACTIVATIONCODE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/activation/activationActivationCode.html";
+
+	m_UrlMap[OPERATION_GETIMGCODE_URL] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/email/needUserEmailCode.html";
+
+	//m_UrlMap[OPERATION_BIND_SENDVERIFY] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/email/checkVaildCode.html";
+	m_UrlMap[OPERATION_BIND_SENDVERIFY] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/email/checkVaildCodeRs.html";
+
+	m_UrlMap[OPERATION_BINDMAIL] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/email/checkEmailValidCode.html";
+
+	//m_UrlMap[OPERATION_UNBIND_PHONECODE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/sms/sendUnBundEmailVaildCode.html";
+	m_UrlMap[OPERATION_UNBIND_PHONECODE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/sms/sendUnBundEmailVaildCodeRs.html";
+
+	m_UrlMap[OPERATION_UNBIND_MAILCODE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/email/sendUnBundEmailVaildCode.html";
+	m_UrlMap[OPERATION_UNBINDMAIL] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/email/unBundEmail.html";
+	m_UrlMap[OPERATION_UNBIND_IMGCODE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/images/getUnBundEmailImage.html";
+  //获取用户下3个等级信息
+	m_UrlMap[OPERATION_GET_USERGRADEINFO] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/user/getUserNextGradeInfo.html";		//获取用户下3个等级信息
+  //获取用户积分日志
+	m_UrlMap[OPERATION_GET_USERINTEGRAL] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/user/getUserGradeInfo.html";			//获取用户积分日志
+	m_UrlMap[OPERATION_ADURL] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/ad/getAd.html";
+	m_UrlMap[OPERATION_UPPADNAME] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/pad/upPadName.html";
+	m_UrlMap[OPERATION_ORDERDETAIL] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/order/getOrderDetail.html";
+	m_UrlMap[OPERATION_CHARGE_WALLET] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/wallet/recharge.html";
+	m_UrlMap[OPERATION_GET_RECORDLIST] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/wallet/recordList.html";
+	m_UrlMap[OPERATION_MYGIFTLIST] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/gift/myGiftList.html";
+	m_UrlMap[OPERATION_WALLETGOODS] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/goods/getWalletGoods.html";
+	m_UrlMap[OPERATION_RBCSTANTARD] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/pad/getPadRbcStandard.html";
+	m_UrlMap[OPERATION_ORDERPRICE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/order/computeOrderPrice.html";
+	
+	m_UrlMap[OPERATION_GET_BING_IMAGECODE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH;
+	m_UrlMap[OPERATION_GETACTIVATIONIMAGE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH;
+	m_UrlMap[OPERATION_BIND_IMGCODE] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH;
+	m_UrlMap[OPERATION_UPLOADLIST] = "/upload/getUploadFileList.html";
+	m_UrlMap[OPERATION_LOGIN_IMGCODE] = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN;
+	m_UrlMap[OPERATION_UPLOAD] = "/upload/resumeUpload.html";
+	m_UrlMap[OPERATION_FILE_EXIST] = "/upload/speedUpload.html";
+	
+
+	m_UrlMap[OPERATION_DEVICE_REBOOT] = m_strUrlHostList[m_nCurHostIndex] + FINGERCOMMAND + "/command/reboot.html";
+	m_UrlMap[OPERATION_RESETPAD] = m_strUrlHostList[m_nCurHostIndex] + FINGERCOMMAND + "/command/resetPad.html";
+	m_UrlMap[OPERATION_GET_EWAY] = m_strPayUrlHostList[m_nCurHostIndex] + FINGERPAY + "/gateway.html";
+	m_UrlMap[OPERATION_ORDERPAY] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/wallet/orderPay.html";
+	m_UrlMap[OPERATION_GETORDERSTATUS] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/order/getOrderStatus.html";
+	m_UrlMap[OPERATION_RESETPASSWORD] = m_strUrlHostList[m_nCurHostIndex] + FINGERLOGIN + "/user/updatePassword.html";
+	m_UrlMap[OPERATION_UPGRAED_GVIP] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/order/toUpgradeGvip.html";
+	m_UrlMap[OPERATION_UPGRADE_GVIPBUY] = m_strUrlHostList[m_nCurHostIndex] + FINGERAUTH + "/order/upgradeGvipBuy.html";
+
+
+
+	//数据统计接口
+	m_UrlMap[OPERATION_PING_RESULT]=string("http://gathers.gc.com.cn") + FINGERGATHER + "/play/pingResult.html";
+	m_UrlMap[OPERATION_PLAY_STATUS] =string( "http://gathers.gc.com.cn") + FINGERGATHER + "/play/padPlay.html";
+	//m_UrlMap[OPERATION_PING_RESULT] = m_strUrlHostList[m_nCurHostIndex] + FINGERGATHER + "/play/pingResult.html";
+	//m_UrlMap[OPERATION_PLAY_STATUS] = m_strUrlHostList[m_nCurHostIndex] + FINGERGATHER + "/play/padPlay.html";
+
+	//网络上报
+
+	string strUrl = URLHOST13;
+	m_UrlMap[OPERATION_TCPING_RESULT] = strUrl + "/gatherControlFail.json";
+	m_UrlMap[OPERATION_TRACERT_RESULT] = strUrl + "/gatherRequestFail.json";
+	//	m_UrlMap[OPERATION_GET_BING_IMAGECODE				   ]
+	//	m_UrlMap[OPERATION_DEVICE_REBOOT					   ]
+	//	m_UrlMap[OPERATION_GETACTIVATIONIMAGE				   ]
+	//	m_UrlMap[OPERATION_NEEDACTIVATION					   ]
+	//	m_UrlMap[OPERATION_GETACTIVATIONDEVICE				   ]
+```
 ## PC应用启动过程调用的接口
 ### 自动登录
 ```
